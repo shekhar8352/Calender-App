@@ -89,17 +89,17 @@ function App() {
   }
 
   async function createCalendarEvent() {
-    console.log("Creating calendar event");
+    // console.log("Creating calendar event");
     const event = {
       summary: eventName,
       description: eventDescription,
       start: {
-        dateTime: start.toISOString(), // Date.toISOString() ->
-        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, // America/Los_Angeles
+        dateTime: start.toISOString(), 
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, 
       },
       end: {
-        dateTime: end.toISOString(), // Date.toISOString() ->
-        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, // America/Los_Angeles
+        dateTime: end.toISOString(), 
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, 
       },
     };
     await fetch(
@@ -107,7 +107,7 @@ function App() {
       {
         method: "POST",
         headers: {
-          Authorization: "Bearer " + session.provider_token, // Access token for google
+          Authorization: "Bearer " + session.provider_token, 
         },
         body: JSON.stringify(event),
       }
@@ -137,11 +137,15 @@ function App() {
                 color: "#fffff",
               }}
             >
-              <div style={{
-                color: "white",
-                fontWeight: "bold",
-                fontSize: "18px"
-              }}>{session ? session.user.email : "Not logged in"}</div>
+              <div
+                style={{
+                  color: "white",
+                  fontWeight: "bold",
+                  fontSize: "18px",
+                }}
+              >
+                {session ? session.user.email : "Not logged in"}
+              </div>
               {session && (
                 <button className="sign-out-btn" onClick={signOut}>
                   Sign Out
@@ -242,7 +246,7 @@ function App() {
           </>
         ) : (
           <>
-          <nav
+            <nav
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -252,11 +256,15 @@ function App() {
                 color: "#fffff",
               }}
             >
-              <div style={{
-                color: "white",
-                fontWeight: "bold",
-                fontSize: "18px"
-              }}>Activity Tracker</div>
+              <div
+                style={{
+                  color: "white",
+                  fontWeight: "bold",
+                  fontSize: "18px",
+                }}
+              >
+                Activity Tracker
+              </div>
             </nav>
             <div className="sign-in-button-container">
               <button className="sign-in-button" onClick={() => googleSignIn()}>
