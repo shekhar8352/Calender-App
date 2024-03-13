@@ -242,7 +242,27 @@ function App() {
           </>
         ) : (
           <>
-            <button onClick={() => googleSignIn()}>Sign In With Google</button>
+          <nav
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "30px 50px",
+                backgroundColor: "#000",
+                color: "#fffff",
+              }}
+            >
+              <div style={{
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "18px"
+              }}>Activity Tracker</div>
+            </nav>
+            <div className="sign-in-button-container">
+              <button className="sign-in-button" onClick={() => googleSignIn()}>
+                Sign In With Google
+              </button>
+            </div>
           </>
         )}
         <div
